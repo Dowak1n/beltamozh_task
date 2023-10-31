@@ -8,6 +8,7 @@
       <v-card-text>
         <v-row>
           <v-text-field
+              class="ml-2"
               v-for="(field, index) in dialogFields" :key="index"
               v-model="field.value"
               outlined
@@ -20,8 +21,8 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="blue darken-1" text @click="clearForm()"> Назад </v-btn>
-        <v-btn color="blue darken-1" text @click="isDialogFormOpen.dialogFormType === 'add' ? applyAdd(dialogFields) : applyChange(dialogFields)"> Сохранить изменения </v-btn>
+        <v-btn color="primary" text @click="clearForm()"> Назад </v-btn>
+        <v-btn color="primary" text @click="isDialogFormOpen.dialogFormType === 'add' ? applyAdd(getDialogFieldsData()) : applyChange(getDialogFieldsData())"> Сохранить изменения </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -57,6 +58,13 @@ export default {
       });
     },
 
+    getDialogFieldsData() {
+      const dialogFieldsObject = {};
+      for (const field of this.dialogFields) {
+        dialogFieldsObject[field.field] = field.value;
+      }
+      return dialogFieldsObject
+    },
   },
   beforeMount() {
     const lastItem = this.selectUserData[this.selectUserData.length - 1];

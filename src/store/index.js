@@ -104,29 +104,19 @@ export default new Vuex.Store({
             }
         },
 
-        async applyChange({ commit, state }, dialogFields) {
-            const dialogFieldsObject = {};
-            for (const field of dialogFields) {
-                dialogFieldsObject[field.field] = field.value;
-            }
-            for (let i = 0; i < state.selectUserData.length; i++) {
-                try {
-                    const response = await axios.put(`https://retoolapi.dev/D6xLg4/data/${state.selectUserData[i].id}`, dialogFieldsObject);
-                    commit('changeData', response.data);
-                } catch (error) {
-                    console.error('Ошибка при изменении данных:', error);
-                }
+        async applyChange({ commit, state }, newElement) {
+            try {
+                const response = await axios.put(`https://retoolapi.dev/D6xLg4/data/${state.selectUserData[state.selectUserData.length - 1].id}`, newElement);
+                commit('changeData', response.data);
+            } catch (error) {
+                console.error('Ошибка при изменении данных:', error);
             }
             commit('setDialogOpen', '');
         },
 
-        async applyAdd({ commit }, dialogFields) {
-            const dialogFieldsObject = {};
-            for (const field of dialogFields) {
-                dialogFieldsObject[field.field] = field.value;
-            }
+        async applyAdd({ commit }, newElement) {
             try {
-                const response = await axios.post('https://retoolapi.dev/D6xLg4/data', dialogFieldsObject);
+                const response = await axios.post('https://retoolapi.dev/D6xLg4/data', newElement);
                 console.log('Данные успешно добавлены:', response.data);
                 commit('addData', response.data);
                 commit('setDialogOpen', '');
