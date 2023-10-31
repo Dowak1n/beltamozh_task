@@ -79,13 +79,13 @@ export default {
     return {
       currentTitle: 'Обработаные',
       headers: [
-        { text: 'Имя', value: 'firstName', class: 'my-header-style' },
-        { text: 'Фамилия', value: 'lastName', class: 'my-header-style' },
-        { text: 'Компания', value: 'company', class: 'my-header-style' },
-        { text: 'Специальность', value: 'jobTitle', class: 'my-header-style' },
-        { text: 'Телефон', value: 'phone', class: 'my-header-style' },
-        { text: 'Е-mail', value: 'email', class: 'my-header-style' },
-        { text: 'Интересы', value: 'interests', class: 'my-header-style' },
+        { text: 'Имя', value: 'firstName', class: 'my-header-style black--text' },
+        { text: 'Фамилия', value: 'lastName', class: 'my-header-style black--text' },
+        { text: 'Компания', value: 'company', class: 'my-header-style black--text' },
+        { text: 'Специальность', value: 'jobTitle', class: 'my-header-style black--text' },
+        { text: 'Телефон', value: 'phone', class: 'my-header-style black--text' },
+        { text: 'Е-mail', value: 'email', class: 'my-header-style black--text' },
+        { text: 'Интересы', value: 'interests', class: 'my-header-style black--text' },
       ],
       buttonItems: ['Добавить', 'Изменить', 'Удалить']
     };
@@ -211,9 +211,8 @@ export default {
 }
 
 .my-header-style {
-  color: #000000 !important;
-  font-family: Roboto,serif;
   font-size: 16px !important;
+  font-family: Roboto,serif;
   font-weight: 600;
 }
 </style>

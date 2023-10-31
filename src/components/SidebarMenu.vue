@@ -2,7 +2,7 @@
   <v-container class="color">
     <v-row>
       <v-col>
-        <v-list>
+        <v-list class="pa-0">
           <v-list-group
               :value="true"
           >
@@ -21,7 +21,7 @@
                   color="primary"
               >
                 <router-link :to="item.route" style="width: 100%; display: flex">
-                <v-list-item-icon class="list-item-icon">
+                <v-list-item-icon class="mr-5">
                   <v-icon class="primary--text" v-text="item.icon"></v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
@@ -54,9 +54,6 @@ export default {
 </script>
 
 <style>
-.v-list {
-  padding: 0 !important;
-}
 .color {
   background: #FFFFFF;
   height: 100%;
@@ -65,14 +62,6 @@ export default {
 
 .list-item {
   padding-left: 31px;
-}
-
-.theme--light.v-list-item--active:hover::before, .theme--light.v-list-item--active::before {
-  opacity: 0 !important;
-}
-
-.list-item-icon {
-  margin-right: 20px !important;
 }
 
 .list-item-text {
